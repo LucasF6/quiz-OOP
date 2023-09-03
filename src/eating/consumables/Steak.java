@@ -12,11 +12,6 @@ public class Steak extends Consumable {
     human.replenishHungerPoints(40);
   }
 
-  @Override
-  public String getName() {
-    return "steak";
-  }
-
   public Set<Type> getRequiredDishes() {
     return Set.of(Type.PLATE, Type.FORK, Type.KNIFE);
   }

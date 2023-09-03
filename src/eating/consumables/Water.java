@@ -13,11 +13,6 @@ public class Water extends Consumable {
   }
 
   @Override
-  public String getName() {
-    return "water";
-  }
-
-  @Override
   public Set<Type> getRequiredDishes() {
     return Set.of(Type.GLASS);
   }

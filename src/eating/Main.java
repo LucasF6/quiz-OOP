@@ -13,6 +13,16 @@ import eating.humans.Human.Health;
 
 public class Main {
 
+  /**
+   * @return An instance of Human that returns true when isFrustrated() is called
+   */
+  public static Human createFrustratedHuman() {
+    Human human = new Human(100, 100);
+    Water water = new Water();
+    human.consume(water);
+    return human;
+  }
+
   public static void main(String[] args) {
     boolean correct = true;
 
@@ -170,7 +180,7 @@ public class Main {
       correct = false;
     }
 
-    Maid maid = new Maid(10, 20);
+    Maid maid = new Maid(10, 30);
     maid.washDishesOnTable(table2, dishWasher);
     maid.sitAtTable(table2);
     steak = new Steak();
@@ -196,6 +206,17 @@ public class Main {
     if (maid.isFrustrated() || fred.isFrustrated()) {
       correct = false;
       System.out.println("here");
+    }
+
+    maid.washDishesOnTable(table2, dishWasher);
+    fred.consume(steak); // fail (the steak is already eaten)
+
+    if (!fred.isFrustrated()) {
+      correct = false;
+    }
+
+    if (!createFrustratedHuman().isFrustrated()) {
+      correct = false;
     }
 
     if (correct) {

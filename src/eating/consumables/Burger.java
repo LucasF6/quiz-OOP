@@ -13,11 +13,6 @@ public class Burger extends Consumable {
   }
 
   @Override
-  public String getName() {
-    return "burger";
-  }
-
-  @Override
   public Set<Type> getRequiredDishes() {
     return Set.of(Type.PLATE);
   }
