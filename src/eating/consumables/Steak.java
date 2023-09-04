@@ -10,13 +10,12 @@ public class Steak extends Consumable {
   /**
    * @return a set containing precisely one plate, one fork, and one knife
    */
+  @Override
   public Set<Type> getRequiredDishes() {
-    return Set.of(Type.PLATE, Type.FORK, Type.KNIFE);
+    return null;
   }
 
   @Override
-  protected void modifyHuman(Human human) {
-    human.replenishHungerPoints(40);
-  }
+  protected void modifyHuman(Human human) {}
   
 }

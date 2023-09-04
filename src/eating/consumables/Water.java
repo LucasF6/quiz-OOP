@@ -12,12 +12,10 @@ public class Water extends Consumable {
    */
   @Override
   public Set<Type> getRequiredDishes() {
-    return Set.of(Type.GLASS);
+    return null;
   }
 
   @Override
-  protected void modifyHuman(Human human) {
-    human.replenishThirstPoints(15);
-  }
+  protected void modifyHuman(Human human) {}
   
 }
