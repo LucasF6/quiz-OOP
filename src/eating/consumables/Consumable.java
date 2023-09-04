@@ -29,8 +29,18 @@ public abstract class Consumable {
     return isEaten;
   }
 
-  protected abstract void modifyHuman(Human human);
-
+  /**
+   * Required dishes could be plates, glasses, forks, knives, or spoons. 
+   * 
+   * @return the types of dishes required to eat the consumable
+   */
   public abstract Set<Type> getRequiredDishes();
+
+  /**
+   * Modifies the hunger points or thirst points of the human
+   * 
+   * @param human the human to modify
+   */
+  protected abstract void modifyHuman(Human human);
 
 }

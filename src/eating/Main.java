@@ -1,6 +1,7 @@
 package eating;
 
 import eating.consumables.Burger;
+import eating.consumables.Consumable;
 import eating.consumables.Steak;
 import eating.consumables.Water;
 import eating.dishes.Dish;
@@ -21,6 +22,44 @@ public class Main {
     Water water = new Water();
     human.consume(water);
     return human;
+  }
+
+  /**
+   * @return An instance of Steak that returns true when isEaten() is called
+   */
+  public static Steak createEatenSteak() {
+    Human human = new Human(100, 100);
+    Steak steak = new Steak();
+    Dish plate = new Dish(Type.PLATE);
+    Dish fork = new Dish(Type.FORK);
+    Dish knife = new Dish(Type.KNIFE);
+    Table table = new Table();
+    table.addDish(plate, fork, knife);
+    human.sitAtTable(table);
+    human.consume(steak);
+    return steak;
+  }
+
+  /**
+   * Makes the given consumable return true when isEaten() is called
+   * 
+   * @param consumable the consumable to eat
+   * @return the given consumable that will return true when isEaten() is called
+   */
+  public static Consumable eat(Consumable consumable) {
+    Human human = new Human(100, 100);
+    Dish[] dishes = new Dish[5];
+    Type[] types = {
+      Type.FORK, Type.GLASS, Type.PLATE, Type.KNIFE, Type.SPOON
+    };
+    for (int i = 0; i < 5; i++) {
+      dishes[i] = new Dish(types[i]);
+    }
+    Table table = new Table();
+    table.addDish(dishes);
+    human.sitAtTable(table);
+    human.consume(consumable);
+    return consumable;
   }
 
   public static void main(String[] args) {
@@ -180,7 +219,7 @@ public class Main {
       correct = false;
     }
 
-    Maid maid = new Maid(10, 30);
+    Maid maid = new Maid(10, 40);
     maid.washDishesOnTable(table2, dishWasher);
     maid.sitAtTable(table2);
     steak = new Steak();
@@ -205,7 +244,6 @@ public class Main {
 
     if (maid.isFrustrated() || fred.isFrustrated()) {
       correct = false;
-      System.out.println("here");
     }
 
     maid.washDishesOnTable(table2, dishWasher);
@@ -215,7 +253,36 @@ public class Main {
       correct = false;
     }
 
+    Dish plate4 = new Dish(Type.PLATE);
+    table1.addDish(plate4);
+    fred.getUpFromTable();
+    fred.sitAtTable(table1);
+    maid.getUpFromTable();
+    maid.sitAtTable(table1);
+    burger = new Burger();
+    maid.consume(burger);
+    maid.consume(burger); // maid is now frustrated
+    maid.washDishesOnTable(table1, dishWasher); // fail (maid is frustrated)
+    burger = new Burger();
+    fred.consume(burger); // (fail) the dishes won't be clean
+    // fred is now frustrated
+
+    if (!fred.isFrustrated()) {
+      correct = false;
+    }
+
     if (!createFrustratedHuman().isFrustrated()) {
+      correct = false;
+    }
+
+    if (!createEatenSteak().isEaten()) {
+      correct = false;
+    }
+
+    burger = new Burger();
+    steak = new Steak();
+    water = new Water();
+    if (!eat(burger).isEaten() || !eat(steak).isEaten() || !eat(water).isEaten()) {
       correct = false;
     }
 

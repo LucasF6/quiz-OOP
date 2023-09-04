@@ -37,16 +37,17 @@ public class Dish {
   }
 
   /**
-   * Makes the dish clean
-   */
-  protected void wash() {
-    isClean = true;
-  }
-
-  /**
    * @return true if the dish is clean
    */
   public boolean isClean() {
     return isClean;
   }
+
+  /**
+   * Makes the dish clean
+   */
+  protected void wash() {
+    isClean = true;
+  }
+  
 }

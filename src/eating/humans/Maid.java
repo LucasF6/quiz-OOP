@@ -20,8 +20,9 @@ public class Maid extends Human {
   }
 
   /**
-   * Uses the dishwasher to wash all of the dishes on the table and put them back. The maid does
-   * not wash the dishes if she is frustrated or too hungry or too thirsty.
+   * Uses the dishwasher to wash all of the dishes on the table and put them back. This method
+   * reduces the maid's hunger and thirst points by 10. If the maid is frustrated or does not have
+   * high enough hunger or thirst points, this method does nothing.
    * 
    * @param table
    * @param dishWasher
