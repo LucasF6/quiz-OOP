@@ -44,9 +44,8 @@ public class Main {
    * Makes the given consumable return true when isEaten() is called
    * 
    * @param consumable the consumable to eat
-   * @return the given consumable that will return true when isEaten() is called
    */
-  public static Consumable eat(Consumable consumable) {
+  public static void eat(Consumable consumable) {
     Human human = new Human(100, 100);
     Dish[] dishes = new Dish[5];
     Type[] types = {
@@ -59,7 +58,6 @@ public class Main {
     table.addDish(dishes);
     human.sitAtTable(table);
     human.consume(consumable);
-    return consumable;
   }
 
   public static void main(String[] args) {
@@ -282,7 +280,10 @@ public class Main {
     burger = new Burger();
     steak = new Steak();
     water = new Water();
-    if (!eat(burger).isEaten() || !eat(steak).isEaten() || !eat(water).isEaten()) {
+    eat(burger);
+    eat(steak);
+    eat(water);
+    if (!burger.isEaten() || !steak.isEaten() || !water.isEaten()) {
       correct = false;
     }
 
