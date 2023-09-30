@@ -12,15 +12,13 @@ public class Burger extends Consumable {
    */
   @Override
   public Set<Type> getRequiredDishes() {
-    return Set.of(Type.PLATE);
+    return null;
   }
 
   /**
    * Replenishes the hunger points of the human by 25 points
    */
   @Override
-  protected void modifyHuman(Human human) {
-    human.replenishHungerPoints(25);
-  }
+  protected void modifyHuman(Human human) {}
   
 }

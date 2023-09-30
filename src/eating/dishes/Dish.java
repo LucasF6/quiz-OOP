@@ -1,9 +1,6 @@
 package eating.dishes;
 
 public class Dish {
-  private Type type;
-  private boolean isClean = true;
-  protected DishLocation location;
 
   public enum Type {
     PLATE,
@@ -18,36 +15,30 @@ public class Dish {
    * 
    * @param type The type of dish being constructed
    */
-  public Dish(Type type) {
-    this.type = type;
-  }
+  public Dish(Type type) {}
 
   /** 
    * @return the type of dish as given in the constructor
    */
   public Type getType() {
-    return type;
+    return null;
   }
 
   /**
    * Makes the dish dirty
    */
-  public void use() {
-    isClean = false;
-  }
+  public void use() {}
 
   /**
    * @return true if the dish is clean
    */
   public boolean isClean() {
-    return isClean;
+    return false;
   }
 
   /**
    * Makes the dish clean
    */
-  protected void wash() {
-    isClean = true;
-  }
+  protected void wash() {}
   
 }

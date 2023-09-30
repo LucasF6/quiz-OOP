@@ -18,26 +18,14 @@ public class Main {
    * @return An instance of Human that returns true when isFrustrated() is called
    */
   public static Human createFrustratedHuman() {
-    Human human = new Human(100, 100);
-    Water water = new Water();
-    human.consume(water);
-    return human;
+    return null;
   }
 
   /**
    * @return An instance of Steak that returns true when isEaten() is called
    */
   public static Steak createEatenSteak() {
-    Human human = new Human(100, 100);
-    Steak steak = new Steak();
-    Dish plate = new Dish(Type.PLATE);
-    Dish fork = new Dish(Type.FORK);
-    Dish knife = new Dish(Type.KNIFE);
-    Table table = new Table();
-    table.addDish(plate, fork, knife);
-    human.sitAtTable(table);
-    human.consume(steak);
-    return steak;
+    return null;
   }
 
   /**
@@ -45,20 +33,7 @@ public class Main {
    * 
    * @param consumable the consumable to eat
    */
-  public static void eat(Consumable consumable) {
-    Human human = new Human(100, 100);
-    Dish[] dishes = new Dish[5];
-    Type[] types = {
-      Type.FORK, Type.GLASS, Type.PLATE, Type.KNIFE, Type.SPOON
-    };
-    for (int i = 0; i < 5; i++) {
-      dishes[i] = new Dish(types[i]);
-    }
-    Table table = new Table();
-    table.addDish(dishes);
-    human.sitAtTable(table);
-    human.consume(consumable);
-  }
+  public static void consume(Consumable consumable) {}
 
   public static void main(String[] args) {
     boolean correct = true;
@@ -280,9 +255,9 @@ public class Main {
     burger = new Burger();
     steak = new Steak();
     water = new Water();
-    eat(burger);
-    eat(steak);
-    eat(water);
+    consume(burger);
+    consume(steak);
+    consume(water);
     if (!burger.isEaten() || !steak.isEaten() || !water.isEaten()) {
       correct = false;
     }
