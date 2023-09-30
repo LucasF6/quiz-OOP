@@ -15,6 +15,9 @@ public class Burger extends Consumable {
     return Set.of(Type.PLATE);
   }
 
+  /**
+   * Replenishes the hunger points of the human by 25 points
+   */
   @Override
   protected void modifyHuman(Human human) {
     human.replenishHungerPoints(25);

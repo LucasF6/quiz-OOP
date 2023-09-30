@@ -14,6 +14,9 @@ public class Steak extends Consumable {
     return Set.of(Type.PLATE, Type.FORK, Type.KNIFE);
   }
 
+  /**
+   * Replenishes the hunger points of the human by 40 points
+   */
   @Override
   protected void modifyHuman(Human human) {
     human.replenishHungerPoints(40);
